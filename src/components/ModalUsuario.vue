@@ -3,11 +3,11 @@
     <div class="modal-container">
       <button class="fechar">X</button>
       <label for="nome">Nome:
-        <input type="text" v-model="usuario.nome" required id="nome">
+        <input type="text" v-model="usuario.nome" placeholder="Seu nome" required id="nome">
       </label>
       
       <label for="email">Email:
-        <input type="email" v-model="usuario.email" required id="email">
+        <input type="email" v-model="usuario.email" placeholder="Seu email" required id="email">
       </label>
       <p class="erro" v-if="erro"> Adcione seu nome e e-mail</p>
       <button class="buttonModal" @click="adicionarUsuario">Criar usuário</button>

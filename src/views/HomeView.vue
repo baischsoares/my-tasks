@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <ModalUsuario/>
+    <ModalUsuario v-if="!usuario"/>
   </div>
 </template>
 
@@ -12,6 +12,11 @@ export default {
   name: 'HomeView',
   components: {
     ModalUsuario
+  },
+  computed: {
+    usuario(){
+      return this.$store.state.usuario
+    }
   }
 }
 </script>

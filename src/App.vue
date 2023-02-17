@@ -12,6 +12,24 @@
   
 </template>
 
+<script>
+export default {
+  name: 'AppMyTasks',
+  methods: {
+    pegarUsuario(){
+      if(localStorage.usuario){
+        let usuario = localStorage.getItem('usuario');
+        this.$store.commit('ADICIONAR_USUARIO', JSON.parse(usuario))
+        console.log(this.$store.state.usuario)
+      }
+    }
+  },
+  created() {
+    this.pegarUsuario();
+  }
+}
+</script>
+
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap");
 
