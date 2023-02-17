@@ -56,19 +56,39 @@ p{
   gap: 50px;
 }
 nav{
-  border-right: 1px solid var(--corAzul);;
+  border-right: 1px solid var(--corAzul);
   height: 100vh;
   align-items: flex-start;
 }
 .link-router{
   display: block;
   text-align: center;
-  padding: 20px 0px;
+  padding: 20px 20px;
   color: var(--corTexto);
   border-bottom: 1px solid var(--corAzul);
 }
 .router-link-active{
   background: var(--corAzul);
   color: white;
+}
+@media(max-width: 720px){
+  .grid-layout{
+    grid-template-columns: 1fr;
+  }
+  nav{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 10px;
+    border-bottom: 1px solid var(--corAzul);
+    border-right: none;
+
+
+  }
+  .link-router{
+    display: inline-block;
+    border-bottom: none;
+  }
 }
 </style>
