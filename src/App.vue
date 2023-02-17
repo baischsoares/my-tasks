@@ -25,4 +25,12 @@ li, p, h1, h2, h3{
 a{
   text-decoration: none;
 }
+h1{
+  font-size: 2rem;
+  font-weight: 500;
+}
+p{
+  font-size: 1rem;
+  font-weight: 300;
+}
 </style>
