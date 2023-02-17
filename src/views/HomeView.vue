@@ -1,18 +1,22 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <ModalUsuario v-if="!usuario"/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import ModalUsuario from '@/components/ModalUsuario.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+    ModalUsuario
+  },
+  computed: {
+    usuario(){
+      return this.$store.state.usuario
+    }
   }
 }
 </script>
