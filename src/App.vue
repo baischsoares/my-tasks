@@ -1,15 +1,19 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> 
-    <router-link to="/about">About</router-link>
+    <router-link to="/">Tarefas</router-link> 
+    <router-link to="/dashboard">Dashboard</router-link>
+    <router-link to="/perfil">Perfil</router-link>
   </nav>
   <router-view/>
 </template>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap");
+
 body{
   margin: 0px;
   padding: 0px;
+  font-family: 'Ubuntu', Arial, Helvetica, sans-serif;
 }
 ul{
   list-style: none;
