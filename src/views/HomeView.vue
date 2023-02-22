@@ -9,7 +9,7 @@
       <ModalAdicionarTarefa v-if="adicionando" @fecharModal="adicionando = false"/>
       <h1 >Minhas tarefas</h1>
       <div v-if="usuario.tarefas">
-      <TarefasItem v-for="(tarefa, index) in usuario.tarefas" :tarefa="tarefa" :key="index"/>
+      <TarefasItem v-for="tarefa in usuario.tarefas" :tarefa="tarefa" :key="tarefa.id"/>
       </div>
       <div v-else>
         <p>Você ainda não adicionou nenhuma tarefa</p>

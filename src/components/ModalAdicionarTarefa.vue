@@ -33,6 +33,7 @@ export default {
   methods: {
     criarTarefa(){
       if(this.tarefa.titulo && this.tarefa.prazo && this.tarefa.descricao) {
+        this.tarefa.id = Math.random() * new Date().getTime()
         this.$store.dispatch('criarTarefa', this.tarefa);
         this.fecharModal();
       }else {
