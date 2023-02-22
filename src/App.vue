@@ -20,7 +20,6 @@ export default {
       if(localStorage.Usuario){
         let usuario = localStorage.getItem('Usuario');
         this.$store.commit('ADICIONAR_USUARIO', JSON.parse(usuario))
-        console.log(this.$store.state.usuario)
       }
     }
   },
@@ -70,9 +69,13 @@ p{
   font-weight: 300;
   color: var(--corTexto);
 }
+span{
+  font-size: .75rem;
+  font-weight: 300;
+  color: var(--corTexto);
+}
 .router-view{
   margin: 20px 50px;
-  padding: 20px 50px;
 }
 
 /* Estilo navegacao vertical */
@@ -190,5 +193,8 @@ color: var(--corTexto);
 .buttonModal:hover{
   background: var(--corRoxa);
   color: white;
+}
+h1{
+  margin-bottom: 25px;
 }
 </style>

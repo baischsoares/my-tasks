@@ -1,7 +1,7 @@
 <template>
   <div class="modal">
     <div class="modal-container">
-      <button class="fechar">X</button>
+      <button class="fechar" @click="fecharModal">X</button>
       <label for="titulo">Título da tarefa
         <input type="text" v-model="tarefa.titulo"  required id="titulo">
       </label>
@@ -11,8 +11,8 @@
       <label for="prazo">Prazo:
         <input type="date" v-model="tarefa.prazo"  required id="prazo">
       </label>
-      <p class="erro" v-if="erro"> Adcione seu nome e e-mail</p>
-      <button class="buttonModal" @click="adicionarUsuario">Criar tarefa</button>
+      <p class="erro" v-if="erro"> Adicione titulo, descricao e prazo</p>
+      <button class="buttonModal" @click="criarTarefa">Criar tarefa</button>
     </div>
   </div>
 </template>
@@ -27,9 +27,22 @@ export default {
         prazo: '',
         descricao: '',
       },
-      erro: null,
+      erro: false,
     }
   },
+  methods: {
+    criarTarefa(){
+      if(this.tarefa.titulo && this.tarefa.prazo && this.tarefa.descricao) {
+        this.$store.dispatch('criarTarefa', this.tarefa);
+        this.fecharModal();
+      }else {
+      this.erro = true
+      }
+    },
+     fecharModal(){
+      this.$emit('fecharModal')
+     }
+  }
 }
 
 </script>

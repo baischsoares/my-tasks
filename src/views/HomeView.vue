@@ -1,8 +1,20 @@
 <template>
   <div class="home">
-    <ModalUsuario v-if="!usuario"/>
-    <button class="botao-add">+</button>
-    <ModalAdicionarTarefa v-if="adicionando"/>
+    
+    <div v-if="!usuario">
+      <ModalUsuario />
+    </div>
+    <div v-else>
+      <button class="botao-add" @click="adicionando = true">+</button>
+      <ModalAdicionarTarefa v-if="adicionando" @fecharModal="adicionando = false"/>
+      <h1 >Minhas tarefas</h1>
+      <div v-if="usuario.tarefas">
+      <TarefasItem v-for="(tarefa, index) in usuario.tarefas" :tarefa="tarefa" :key="index"/>
+      </div>
+      <div v-else>
+        <p>Você ainda não adicionou nenhuma tarefa</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -10,23 +22,26 @@
 // @ is an alias to /src
 import ModalUsuario from '@/components/ModalUsuario.vue'
 import ModalAdicionarTarefa from '@/components/ModalAdicionarTarefa.vue'
+import TarefasItem from '@/components/TarefasItem.vue'
+
 
 
 export default {
   name: 'HomeView',
   components: {
     ModalUsuario,
-    ModalAdicionarTarefa
+    ModalAdicionarTarefa,
+    TarefasItem
   },
   data(){
     return {
-      adicionando: true,
+      adicionando: false,
     }
   },
   computed: {
     usuario(){
       return this.$store.state.usuario
-    }
+    },
   }
 }
 </script>
