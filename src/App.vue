@@ -17,10 +17,9 @@ export default {
   name: 'AppMyTasks',
   methods: {
     pegarUsuario(){
-      if(localStorage.usuario){
-        let usuario = localStorage.getItem('usuario');
+      if(localStorage.Usuario){
+        let usuario = localStorage.getItem('Usuario');
         this.$store.commit('ADICIONAR_USUARIO', JSON.parse(usuario))
-        console.log(this.$store.state.usuario)
       }
     }
   },
@@ -70,15 +69,19 @@ p{
   font-weight: 300;
   color: var(--corTexto);
 }
+span{
+  font-size: .75rem;
+  font-weight: 300;
+  color: var(--corTexto);
+}
 .router-view{
-  padding: 20px 0px;
+  margin: 20px 50px;
 }
 
 /* Estilo navegacao vertical */
 .grid-layout{
   display:grid;
   grid-template-columns: 250px auto;
-  gap: 50px;
 }
 nav{
   border-right: 1px solid var(--corAzul);
@@ -141,7 +144,14 @@ nav{
 .modal-container label{
   color: var(--corTexto);
 }
-.modal-container input{
+textarea{
+  resize: none;
+}
+input[type="date"]{
+  width: 100%;
+}
+.modal-container input,
+.modal-container textarea{
   margin-top: 5px;
   display: block;
   border-radius: 5px;
@@ -150,7 +160,8 @@ nav{
   color: var(--corTexto);
   outline: none;
 }
-.modal-container input:focus{
+.modal-container input:focus,
+.modal-container textarea:focus{
   border: 2px solid var(--corAzul);
 }
 .fechar{
@@ -182,5 +193,8 @@ color: var(--corTexto);
 .buttonModal:hover{
   background: var(--corRoxa);
   color: white;
+}
+h1{
+  margin-bottom: 25px;
 }
 </style>
