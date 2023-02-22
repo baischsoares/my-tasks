@@ -3,8 +3,8 @@
   <span>{{ tarefa.prazo }}</span>
   <span>{{ tarefa.titulo }}</span>
   <div class="botoes">
-    <button>Editar</button>
-    <button @click="excluirTarefa(tarefa)">Feita</button>
+    <button class="editar">Editar</button>
+    <button class="feita" @click="excluirTarefa(tarefa)">Feita</button>
   </div>
  </div>
 </template>
@@ -34,5 +34,27 @@ export default {
   align-items: center;
   border-bottom: 1px solid rgba(0,0,0,.1);
   padding: 20px 0px;
+}
+.botoes{
+  display: flex;
+  gap: 15px;
+}
+.botoes button{
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  color: var(--corTexto2);
+  cursor: pointer;
+}
+.botoes button:hover {
+  color: var(--corTexto);
+}
+.feita{
+  border: 1px solid var(--corVerde);
+  background: var(--corVerde);
+}
+.editar{
+  border: 1px solid var(--corAzul);
+  background: var(--corAzul);
 }
 </style>
