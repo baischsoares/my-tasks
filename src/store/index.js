@@ -13,7 +13,7 @@ export default createStore({
   actions: {
     salvarUsuario(context, payload) {
       context.commit('ADICIONAR_USUARIO', payload);
-      localStorage.setItem('usuario', JSON.stringify(this.state.usuario));
+      localStorage.setItem('Usuario', JSON.stringify(this.state.usuario));
     },
   },
   modules: {},
