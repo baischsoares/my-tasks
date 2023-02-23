@@ -11,6 +11,16 @@
       <label for="prazo">Prazo:
         <input type="date" v-model="tarefa.prazo"  required id="prazo">
       </label>
+      <div class="lista-tags">
+          <button v-for="(tag, index) in tags" 
+          :key="index"  
+          :style="tag.estilo" 
+          @click="adicionarTag(tag)" 
+          :class="tarefa.tags.includes(tag) ? 'adicionada' : ''">
+            {{ tag.nome }}
+          </button>
+      </div >
+      
       <p class="erro" v-if="erro"> Adicione pelo menos o título e o prazo</p>
       <button class="buttonModal" @click="criarTarefa">Criar tarefa</button>
     </div>
@@ -26,9 +36,15 @@ export default {
         titulo: '',
         prazo: '',
         descricao: '',
+        tags: [],
       },
       erro: false,
     }
+  },
+  computed: {
+    tags(){
+      return this.$store.state.tags
+    },
   },
   methods: {
     criarTarefa(){
@@ -38,6 +54,14 @@ export default {
         this.fecharModal();
       }else {
       this.erro = true
+      }
+    },
+    adicionarTag(tagEscolhida){
+      let i = this.tarefa.tags.findIndex(tag => tag.nome == tagEscolhida.nome)
+       if(i < 0) {
+        this.tarefa.tags.push(tagEscolhida)
+       } else{
+        this.tarefa.tags.splice(i, 1)
       }
     },
      fecharModal(){
@@ -54,5 +78,15 @@ export default {
   color: var(--corAlerta);
   font-size: 0.75rem;
   font-weight: 700;
+}
+.lista-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: none;
+}
+.adicionada{
+   border: 1px solid var(--corTexto2) 
+  
 }
 </style>
