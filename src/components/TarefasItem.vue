@@ -2,6 +2,9 @@
  <div class="tarefa-item">
   <span>{{ tarefa.prazo }}</span>
   <span>{{ tarefa.titulo }}</span>
+  <div class="tags-tarefas">
+    <span v-for="(tag, index) in tarefa.tags" :key="index" :style="tag.estilo" class="tag"></span>
+  </div>
   <div class="botoes">
     <button class="editar">Editar</button>
     <button class="feita" @click="excluirTarefa(tarefa)">Feita</button>
@@ -59,5 +62,11 @@ export default {
 .editar{
   border: 1px solid var(--corAzul);
   background: var(--corAzul);
+}
+.tag{
+  display: inline-block;
+  width: 15px;
+  height: 5px;
+  margin-left: 5px;
 }
 </style>

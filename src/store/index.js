@@ -3,6 +3,38 @@ import { createStore } from 'vuex';
 export default createStore({
   state: {
     usuario: null,
+    tags: [
+      {
+        nome: 'Trabalho',
+        estilo: {
+          backgroundColor: '#D2CEFF',
+        },
+      },
+      {
+        nome: 'Estudo',
+        estilo: {
+          backgroundColor: '#DAF2D6',
+        },
+      },
+      {
+        nome: 'Compras',
+        estilo: {
+          backgroundColor: '#D1E5F7',
+        },
+      },
+      {
+        nome: 'Pessoal',
+        estilo: {
+          backgroundColor: '#FFF9DE',
+        },
+      },
+      {
+        nome: 'Importante',
+        estilo: {
+          backgroundColor: '#FFCECE',
+        },
+      },
+    ],
   },
   getters: {},
   mutations: {

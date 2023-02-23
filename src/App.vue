@@ -74,6 +74,13 @@ span{
   font-weight: 300;
   color: var(--corTexto);
 }
+button{
+  border: none;
+  padding: 5px 10px;
+  color: var(--corTexto);
+  border-radius: 5px;
+  cursor: pointer;
+}
 .router-view{
   margin: 20px 50px;
 }
@@ -172,7 +179,6 @@ textarea{
   padding: 9px 12px;
   top: -15px;
   right: -15px;
-  cursor: pointer;
   box-shadow: -5px 5px 15px rgba(0,0,0,.2);
 }
 .fechar:hover{
@@ -186,7 +192,6 @@ color: var(--corTexto);
   border-radius: 5px;
   color: var(--corRoxa);
   font-weight: 700;
-  cursor: pointer;
 }
 .buttonModal:hover{
   background: var(--corRoxa);
