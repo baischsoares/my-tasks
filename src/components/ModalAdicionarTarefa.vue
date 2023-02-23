@@ -11,7 +11,7 @@
       <label for="prazo">Prazo:
         <input type="date" v-model="tarefa.prazo"  required id="prazo">
       </label>
-      <p class="erro" v-if="erro"> Adicione titulo, descricao e prazo</p>
+      <p class="erro" v-if="erro"> Adicione pelo menos o título e o prazo</p>
       <button class="buttonModal" @click="criarTarefa">Criar tarefa</button>
     </div>
   </div>
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     criarTarefa(){
-      if(this.tarefa.titulo && this.tarefa.prazo && this.tarefa.descricao) {
+      if(this.tarefa.titulo && this.tarefa.prazo) {
         this.tarefa.id = Math.random() * new Date().getTime()
         this.$store.dispatch('criarTarefa', this.tarefa);
         this.fecharModal();

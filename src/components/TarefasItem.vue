@@ -17,12 +17,15 @@ export default {
   props: ['tarefa'],
   methods: {
     excluirTarefa(tarefa){
-      let listaTarefas = this.$store.state.usuario.tarefas.filter(task => {
+      let confirmacao = window.confirm('Tem certeza que qeur excluir a tarefa?')
+      if(confirmacao){
+        let listaTarefas = this.$store.state.usuario.tarefas.filter(task => {
         return !(task.id == tarefa.id);
       })
       this.$store.dispatch('tarefaFeita', tarefa)
       this.$store.dispatch('atualizarTarefas', listaTarefas)
     }
+      }
   }
 }
 </script>

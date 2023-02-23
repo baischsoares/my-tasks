@@ -147,11 +147,9 @@ nav{
 textarea{
   resize: none;
 }
-input[type="date"]{
-  width: 100%;
-}
 .modal-container input,
 .modal-container textarea{
+  width: 100%;
   margin-top: 5px;
   display: block;
   border-radius: 5px;
