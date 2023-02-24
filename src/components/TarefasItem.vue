@@ -14,7 +14,6 @@
 
 <script>
 
-
 export default {
   name: 'TarefaItem',
   props: ['tarefa'],
@@ -27,8 +26,11 @@ export default {
       })
       this.$store.dispatch('tarefaFeita', tarefa)
       this.$store.dispatch('atualizarTarefas', listaTarefas)
-    }
       }
+    },
+    abrirModal(){
+      this.$emit('abrirModal')
+    }
   }
 }
 </script>

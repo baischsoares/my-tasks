@@ -6,10 +6,12 @@
     </div>
     <div v-else>
       <button class="botao-add" @click="adicionando = true">+</button>
+
       <ModalAdicionarTarefa v-if="adicionando" @fecharModal="adicionando = false"/>
+
       <h1 >Minhas tarefas</h1>
       <div v-if="usuario.tarefas">
-        <TarefasItem v-for="tarefa in usuario.tarefas" :tarefa="tarefa" :key="tarefa.id"/>
+        <TarefasItem v-for="tarefa in usuario.tarefas" :tarefa="tarefa" :key="tarefa.id" @abrirModal="modalinformacoes = true" />
       </div>
       <div v-else>
         <p>Você ainda não adicionou nenhuma tarefa</p>
@@ -25,17 +27,18 @@ import ModalAdicionarTarefa from '@/components/ModalAdicionarTarefa.vue'
 import TarefasItem from '@/components/TarefasItem.vue'
 
 
-
 export default {
   name: 'HomeView',
   components: {
     ModalUsuario,
     ModalAdicionarTarefa,
-    TarefasItem
+    TarefasItem,
   },
   data(){
     return {
       adicionando: false,
+      modalinformacoes: false,
+      tarefa: null
     }
   },
   computed: {
