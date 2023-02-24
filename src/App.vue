@@ -21,10 +21,17 @@ export default {
         let usuario = localStorage.getItem('Usuario');
         this.$store.commit('ADICIONAR_USUARIO', JSON.parse(usuario))
       }
+    },
+    pegarTags(){
+      if(localStorage.Tags){
+        let tag = localStorage.getItem('Tags');
+        this.$store.state.tags = JSON.parse(tag)
+      }
     }
   },
   created() {
     this.pegarUsuario();
+    this. pegarTags();
   }
 }
 </script>

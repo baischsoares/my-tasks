@@ -50,6 +50,12 @@ export default createStore({
     TAREFA_FEITA(state, payload) {
       state.usuario.tarefasFeitas.unshift(payload);
     },
+    ADICIONAR_TAG(state, payload) {
+      state.tags.push(payload);
+    },
+    TAG_EXCLUIDA(state, payload) {
+      state.tags = payload;
+    },
   },
   actions: {
     salvarUsuario(context, payload) {
@@ -67,6 +73,15 @@ export default createStore({
     tarefaFeita(context, payload) {
       context.commit('TAREFA_FEITA', payload);
     },
+    criarTag(context, payload) {
+      context.commit('ADICIONAR_TAG', payload);
+      localStorage.setItem('Tags', JSON.stringify(this.state.tags));
+    },
+    excluirTag(context, payload) {
+      context.commit('TAG_EXCLUIDA', payload);
+      localStorage.setItem('Tags', JSON.stringify(this.state.tags));
+    },
   },
+
   modules: {},
 });
