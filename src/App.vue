@@ -125,8 +125,6 @@ nav{
     margin: 0px 10px;
     border-bottom: 1px solid var(--corAzul);
     border-right: none;
-
-
   }
   .link-router{
     display: inline-block;
