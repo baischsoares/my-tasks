@@ -77,11 +77,11 @@ p{
   color: var(--corTexto);
 }
 span{
-  font-size: .75rem;
   font-weight: 300;
   color: var(--corTexto);
 }
 button{
+  font-size: 1rem;
   border: none;
   padding: 5px 10px;
   color: var(--corTexto);

@@ -1,9 +1,8 @@
 <template>
   <div class="dashboard">
     <h1>Dashboard</h1>
-    <p>tarefas abertas: {{ tarefasAbertas.length }}</p>
-    <p>tarefas feitas: {{ tarefasFeitas.length }}</p>
-
+    <p>Tarefas abertas:  {{ tarefasAbertas.length }}</p>
+    <p>Tarefas feitas:  {{ tarefasFeitas.length }}</p>
   </div>
 </template>
 

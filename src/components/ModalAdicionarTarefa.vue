@@ -57,7 +57,6 @@ export default {
         this.tarefa.prazoFormatado = data.getUTCDate() + '/' + (data.getUTCMonth()+1) + '/' + data.getFullYear();
 
         this.$store.dispatch('criarTarefa', this.tarefa);
-        console.log(this.$store.state.usuario)
         this.fecharModal();
       }else {
       this.erro = true

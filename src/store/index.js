@@ -50,6 +50,9 @@ export default createStore({
     TAREFA_FEITA(state, payload) {
       state.usuario.tarefasFeitas.unshift(payload);
     },
+    EDITAR_TAREFA(state, payload) {
+      state.usuario.tarefas = payload;
+    },
     ADICIONAR_TAG(state, payload) {
       state.tags.push(payload);
     },
@@ -79,6 +82,16 @@ export default createStore({
     },
     tarefaFeita(context, payload) {
       context.commit('TAREFA_FEITA', payload);
+    },
+    editarTarefa(context, payload) {
+      let listaTarefas = payload;
+
+      let listaOrdenada = listaTarefas.sort((a, b) => {
+        return a.prazo - b.prazo;
+      });
+
+      context.commit('EDITAR_TAREFA', listaOrdenada);
+      localStorage.setItem('Usuario', JSON.stringify(this.state.usuario));
     },
     criarTag(context, payload) {
       context.commit('ADICIONAR_TAG', payload);

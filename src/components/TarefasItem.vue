@@ -10,10 +10,10 @@
 
       <div class="botoes">
         <button  v-if="tarefa.descricao" class="infos-tarefa" @click="modalInformacao = true"> ? </button>
-        <button class="editar">Editar</button>
+        <button class="editar" @click="editar = true">Editar</button>
         <button class="feita" @click="excluirTarefa(tarefa)">Feita</button>
       </div>
-
+        <ModalEditarTarefa v-if="editar" :tarefa="tarefa" @fecharModal="editar = false"/>
         <div v-if="modalInformacao" class="modal">
           <div class="modal-container modal-infos-tarefa">
             <button class="fechar" @click="modalInformacao = false">X</button>
@@ -29,13 +29,17 @@
 </template>
 
 <script>
-
+import ModalEditarTarefa from '@/components/ModalEditarTarefa.vue'
 export default {
   name: 'TarefaItem',
   props: ['tarefa'],
+  components: {
+    ModalEditarTarefa
+  },
   data(){
     return{
       modalInformacao: false,
+      editar: false
     }
   }, 
   computed:{
@@ -64,7 +68,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .tarefa-item{
   display: flex;
   justify-content: space-between;
@@ -80,7 +84,6 @@ export default {
   text-align: center;
   padding: 5px 10px;
   border-radius: 5px;
-  font-size: 0.75rem;
   color: var(--corTexto2);
   cursor: pointer;
 }
@@ -113,9 +116,7 @@ export default {
 .prazo-tarefa{
   justify-self: flex-end;
 }
-.prazo-tarefa, .descricao-tarefa, .tag{
-  font-size: 0.75rem;
-}
+
 .descricao-espaco{
   padding: 5px;
   grid-column: 1/-1;
