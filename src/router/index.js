@@ -8,7 +8,7 @@ const routes = [
   },
   {
     path: '/dashboard',
-    name: 'dashboard',
+    name: 'DashboardView',
     component: () => import('../views/DashboardView.vue'),
   },
   {

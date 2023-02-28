@@ -1,5 +1,23 @@
 <template>
-  <div class="about">
-    <h1>This is an dashboard page</h1>
+  <div class="dashboard">
+    <h1>Dashboard</h1>
+    <p>tarefas abertas: {{ tarefasAbertas.length }}</p>
+    <p>tarefas feitas: {{ tarefasFeitas.length }}</p>
+
   </div>
 </template>
+
+<script>
+export default {
+  name: 'DashboardView',
+  computed: {
+    tarefasAbertas(){
+      return this.$store.state.usuario.tarefas
+    },
+    tarefasFeitas(){
+      return this.$store.state.usuario.tarefasFeitas
+
+    }
+  }
+}
+</script>
