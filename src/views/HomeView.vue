@@ -5,8 +5,12 @@
       <ModalUsuario />
     </div>
     <div v-else>
-      <button class="botao-add" @click="adicionando = true">+</button>
+      <div class="btns">
+        <button class=" botao-info-tag" @click=" modalTags = true">?</button>
+        <button class="botao-add" @click="adicionando = true">+</button>
+      </div>
 
+      <ModalTagsInfo v-if="modalTags" @fecharModal=" modalTags = false"/>
       <ModalAdicionarTarefa v-if="adicionando" @fecharModal="adicionando = false"/>
 
       <h1 >Minhas tarefas</h1>
@@ -25,6 +29,7 @@
 import ModalUsuario from '@/components/ModalUsuario.vue'
 import ModalAdicionarTarefa from '@/components/ModalAdicionarTarefa.vue'
 import TarefasItem from '@/components/TarefasItem.vue'
+import ModalTagsInfo from '@/components/ModalTagsInfo.vue'
 
 
 export default {
@@ -33,12 +38,14 @@ export default {
     ModalUsuario,
     ModalAdicionarTarefa,
     TarefasItem,
+    ModalTagsInfo,
   },
   data(){
     return {
       adicionando: false,
       modalinformacoes: false,
-      tarefa: null
+      tarefa: null,
+      modalTags: false
     }
   },
   computed: {
@@ -49,13 +56,25 @@ export default {
 }
 </script>
 <style>
-.botao-add{
+.btns{
   float: right;
-  height: 35px;
-  width: 35px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.botao-info-tag{
+  color: var(--corAlerta);
   font-size: 1.5rem;
   font-weight: bold;
-  border-radius: 50%;
+  background: transparent;
+}
+.botao-info-tag:hover{
+  color: var(--corVerde);
+}
+.botao-add{
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 5px;
   border: 1px solid var(--corTexto);
   background-color: #fff;
   color:var(--corTexto);
