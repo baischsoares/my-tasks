@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     excluirTarefa(tarefa){
-      let confirmacao = window.confirm('Tem certeza que quer excluir a tarefa?')
+      let confirmacao = window.confirm('Você concluiu essa tarefa?')
       if(confirmacao){
         let listaTarefas = this.$store.state.usuario.tarefas.filter(task => {
         return !(task.id == tarefa.id);
