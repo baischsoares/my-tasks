@@ -51,6 +51,8 @@ export default {
         let listaTarefas = this.$store.state.usuario.tarefas.filter(task => {
         return !(task.id == tarefa.id);
       })
+      let diaConclusao = new Date()
+      tarefa.dataConclusao = diaConclusao.getTime()
       this.$store.dispatch('tarefaFeita', tarefa)
       this.$store.dispatch('atualizarTarefas', listaTarefas)
       }
