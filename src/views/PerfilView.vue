@@ -9,12 +9,8 @@
       </div>
       <div class="tags-perfil">
         <h4>Suas tags</h4>
-        <div class="tag-perfil" v-for="tag in tags" :key="tag">
-          <div class="tag-dados">
-            <p class="tag-perfil-nome">{{ tag.nome }}</p>
-            <p :style="tag.estilo" class="estilo-tag"></p>
-          </div>
-          <button class="excluirTag" @click="excluirTag(tag)">X</button>
+        <div class="tags-perfil" v-for="tag in tags" :key="tag">
+          <ListaTags :tag="tag" />
         </div>
         <button @click="adicionandoTag = true" class="adicionarTag">Adicionar nova</button>
       </div>
@@ -28,11 +24,14 @@
 <script>
 
 import ModalAdicionarTag from '@/components/ModalAdicionarTag.vue'
+import ListaTags from '@/components/ListaTags.vue'
+
 
 export default {
   name: 'PerfilView',
   components: {
-    ModalAdicionarTag
+    ModalAdicionarTag,
+    ListaTags
   },
   data(){
     return {
@@ -75,28 +74,7 @@ h4{
   margin: 0 auto 20px auto;
   color: var(--corTexto);
 }
-.tag-perfil span{
-  display: inline-block;
-  font-size:0.75rem;
-}
-.tag-dados{
-  display: grid;
-  grid-template-columns: 100px auto;
-  align-items: center;
-}
 
-.tag-perfil{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  margin-bottom: 15px;
-}
-.estilo-tag{
-  display:block;
-  width: 20px;
-  height: 5px;
-}
 .adicionarTag{
   background: var(--corAzul);
   width: 100%;
@@ -104,17 +82,9 @@ h4{
 .adicionarTag:hover{
   background: var(--corRoxa);
 }
-.excluirTag{
-  color: var(--corAlerta);
-  background: transparent;
-}
-.excluirTag:hover{
-  border: 1px solid var(--corAlerta);
-}
 @media(max-width: 720px){
   .perfil-secao{
   grid-template-columns: 1fr;
   }
-  
 }
 </style>
