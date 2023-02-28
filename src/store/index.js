@@ -42,7 +42,7 @@ export default createStore({
       state.usuario = payload;
     },
     ADICIONAR_TAREFA(state, payload) {
-      state.usuario.tarefas.unshift(payload);
+      state.usuario.tarefas = payload;
     },
     ATUALIZAR_TAREFAS(state, payload) {
       state.usuario.tarefas = payload;
@@ -63,7 +63,14 @@ export default createStore({
       localStorage.setItem('Usuario', JSON.stringify(this.state.usuario));
     },
     criarTarefa(context, payload) {
-      context.commit('ADICIONAR_TAREFA', payload);
+      let listaTarefas = context.state.usuario.tarefas;
+      listaTarefas.push(payload);
+
+      let listaOrdenada = listaTarefas.sort((a, b) => {
+        return a.prazo - b.prazo;
+      });
+
+      context.commit('ADICIONAR_TAREFA', listaOrdenada);
       localStorage.setItem('Usuario', JSON.stringify(this.state.usuario));
     },
     atualizarTarefas(context, payload) {
