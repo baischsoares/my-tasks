@@ -18,7 +18,7 @@
           <div class="modal-container modal-infos-tarefa">
             <button class="fechar" @click="modalInformacao = false">X</button>
             <p class="titulo-tarefa">{{ tarefa.titulo }}</p>
-            <p class="prazo-tarefa"> {{ tarefa.prazo }}</p>
+            <p class="prazo-tarefa"> {{ tarefa.prazoFormatado }}</p>
             <p class="descricao-tarefa">Descrição:</p>
             <div class="descricao-espaco">
               <p class="descricao-tarefa"> {{ tarefa.descricao }}</p>
