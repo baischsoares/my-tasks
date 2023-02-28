@@ -49,8 +49,15 @@ export default {
   methods: {
     criarTarefa(){
       if(this.tarefa.titulo && this.tarefa.prazo) {
-        this.tarefa.id = Math.random() * new Date().getTime()
+        this.tarefa.id = Math.random() * new Date().getTime();
+
+        let data = new Date(this.tarefa.prazo);
+        this.tarefa.prazo = data
+
+        this.tarefa.prazoFormatado = (data.getDate() + 1).toString().padStart(2, '0') + '/' + (data.getMonth()+1).toString().padStart(2, '0')  + '/' + data.getFullYear();
+
         this.$store.dispatch('criarTarefa', this.tarefa);
+        console.log(this.$store.state.usuario)
         this.fecharModal();
       }else {
       this.erro = true

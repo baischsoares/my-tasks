@@ -1,7 +1,7 @@
 <template>
  <div class="tarefa-item">
 
-      <span>{{ tarefa.prazo }}</span>
+      <span :class="foraPrazo ? 'fora' : ''">{{ tarefa.prazoFormatado }}</span>
       <span>{{ tarefa.titulo }}</span>
 
       <div class="tags-tarefas">
@@ -36,6 +36,12 @@ export default {
   data(){
     return{
       modalInformacao: false,
+    }
+  }, 
+  computed:{
+    foraPrazo(tarefa){
+      let diaAtual = new Date();
+      return (tarefa.prazo > diaAtual) ? true : false
     }
   },
   methods: {
