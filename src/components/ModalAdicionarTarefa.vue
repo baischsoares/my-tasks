@@ -52,9 +52,9 @@ export default {
         this.tarefa.id = Math.random() * new Date().getTime();
 
         let data = new Date(this.tarefa.prazo);
-        this.tarefa.prazo = data
+        this.tarefa.prazo = data.getTime();
 
-        this.tarefa.prazoFormatado = (data.getDate() + 1).toString().padStart(2, '0') + '/' + (data.getMonth()+1).toString().padStart(2, '0')  + '/' + data.getFullYear();
+        this.tarefa.prazoFormatado = data.getDate().toString().padStart(2, '0') + '/' + (data.getMonth()+1).toString().padStart(2, '0')  + '/' + data.getFullYear();
 
         this.$store.dispatch('criarTarefa', this.tarefa);
         console.log(this.$store.state.usuario)
