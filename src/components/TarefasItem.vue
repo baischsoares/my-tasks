@@ -97,7 +97,13 @@ export default {
   display: flex;
   gap: 15px;
 }
-.prazo{
-  width: max-content;
+
+@media(max-width: 720px){
+  .tarefa-item{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 20px;
+  }
 }
 </style>
