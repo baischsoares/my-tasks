@@ -1,24 +1,21 @@
 <template>
  
-    <tr class="tarefa-item">
-        <td :class="foraPrazo ? 'fora' : ''" class="prazo">{{ tarefa.prazoFormatado }}</td>
-        <td class="titulo">
-          {{ tarefa.titulo }}
-           <span v-for="(tag, index) in tarefa.tags" :key="index" :style="tag.estilo" class="tag"></span>
-        </td>
-        <td class="tags">
-         
-        </td>
-        <td class="btns"> 
+    <div class="tarefa-item">
+        <span :class="foraPrazo ? 'fora' : ''" class="prazo">{{ tarefa.prazoFormatado }}</span>
+        <span class="titulo"> {{ tarefa.titulo }}</span>
+        <div class="tags">
+          <span v-for="(tag, index) in tarefa.tags" :key="index" :style="tag.estilo" class="tag"></span>
+       </div>
+        <div class="btns"> 
           <button  v-if="tarefa.descricao" class="infos-tarefa" @click="modalInformacao = true"> ? </button>
           <button class="editar" @click="editar = true">Editar</button>
           <button class="feita" @click="excluirTarefa(tarefa)">Feita</button>
-        </td>
+        </div>
         <ModalEditarTarefa v-if="editar" :tarefa="tarefa" @fecharModal="editar = false"/>
         <div v-if="modalInformacao" class="modal">
           <ModalTarefaInfo :tarefa="tarefa" @fecharModal=" modalInformacao = false"/>
         </div> 
-    </tr>
+    </div>
 
  
 
@@ -70,7 +67,17 @@ export default {
 </script>
 
 <style scoped>
-
+.tarefa-item{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d1d1d1;
+  padding: 20px 0px;
+}
+.titulo{
+  font-weight: 500;
+}
 .feita{
   border: 1px solid var(--corVerde);
   background: var(--corVerde);
@@ -86,11 +93,6 @@ export default {
   float: right;
 }
 
-td{
-  width: 100%;
-  padding: 5px;
-  text-align: center;
-}
 .btns{
   display: flex;
   gap: 15px;

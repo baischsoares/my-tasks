@@ -14,9 +14,9 @@
       <ModalAdicionarTarefa v-if="adicionando" @fecharModal="adicionando = false"/>
 
       <h1 >Minhas tarefas</h1>
-      <table v-if="usuario.tarefas">
+      <div v-if="usuario.tarefas">
         <TarefasItem v-for="tarefa in usuario.tarefas" :tarefa="tarefa" :key="tarefa.id" @abrirModal="modalinformacoes = true" />
-      </table>
+      </div>
       <div v-else>
         <p>Você ainda não adicionou nenhuma tarefa</p>
       </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="modal">
-    <div class="modal-container">
+    <div class="modal-container modal-editar">
       <button class="fechar" @click="fecharModal">X</button>
       <label for="titulo">Título da tarefa
         <input type="text" v-model="novaTarefa.titulo"  required id="titulo" :placeholder="tarefa.titulo">
@@ -104,6 +104,11 @@ export default {
 }
 .adicionada{
    border: 1px solid var(--corTexto2) 
-  
+}
+@media(max-width: 720px){
+  .modal-editar{
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 </style>
