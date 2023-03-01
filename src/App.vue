@@ -121,14 +121,16 @@ nav{
     height: 60px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 0px 10px;
     border-bottom: 1px solid var(--corAzul);
     border-right: none;
+    width: 100%;
   }
   .link-router{
     display: inline-block;
     border-bottom: none;
+  }
+  .router-view {
+    margin: 20px 10px;
   }
 }
 
