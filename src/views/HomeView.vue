@@ -14,14 +14,14 @@
       <ModalAdicionarTarefa v-if="adicionando" @fecharModal="adicionando = false"/>
 
       <h1 >Minhas tarefas</h1>
-      <div v-if="usuario.tarefas">
+      <table v-if="usuario.tarefas">
         <TarefasItem v-for="tarefa in usuario.tarefas" :tarefa="tarefa" :key="tarefa.id" @abrirModal="modalinformacoes = true" />
-      </div>
+      </table>
       <div v-else>
         <p>Você ainda não adicionou nenhuma tarefa</p>
       </div>
-    </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -30,7 +30,6 @@ import ModalUsuario from '@/components/ModalUsuario.vue'
 import ModalAdicionarTarefa from '@/components/ModalAdicionarTarefa.vue'
 import TarefasItem from '@/components/TarefasItem.vue'
 import ModalTagsInfo from '@/components/ModalTagsInfo.vue'
-
 
 export default {
   name: 'HomeView',
@@ -45,7 +44,7 @@ export default {
       adicionando: false,
       modalinformacoes: false,
       tarefa: null,
-      modalTags: false
+      modalTags: false,
     }
   },
   computed: {
@@ -85,4 +84,5 @@ export default {
   background-color:var(--corVerde);
   color:#fff;
 }
+
 </style>
